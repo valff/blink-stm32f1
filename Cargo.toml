@@ -1,0 +1,47 @@
+[package]
+name = "blink-stm32f1"
+version = "0.1.0"
+authors = ["Valentine Valyaeff <valentine.valyaeff@gmail.com>"]
+description = """
+Example program for STM32F1 using Drone RTOS.
+"""
+readme = "README.md"
+license = "MIT/Apache-2.0"
+repository = "https://github.com/valff/blink-stm32f1"
+
+[dependencies]
+drone = {version = "0.1", features = ["stm32f1"]}
+clippy = {version = "*", optional = true}
+
+[dev-dependencies]
+drone-test = "0.1"
+
+[lib]
+
+[[bin]]
+name = "blink-stm32f1"
+test = false
+doc = false
+
+[profile.dev]
+opt-level = 3
+lto = true
+panic = "abort"
+
+[profile.release]
+opt-level = 3
+lto = true
+panic = "abort"
+
+[profile.test]
+panic = "abort"
+
+[profile.bench]
+opt-level = 3
+lto = true
+panic = "abort"
+
+[profile.doc]
+opt-level = 3
+lto = true
+panic = "abort"
